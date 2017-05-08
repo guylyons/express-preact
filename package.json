@@ -1,0 +1,15 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "starting point for WebPack projects",
+  "main": "index.js",
+  "author": "Guy Lyons",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "webpack": "^2.5.1"
+  }
+}
