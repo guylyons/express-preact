@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Guy Lyons",
   "license": "MIT",
+  "repository": "git@github.com:guylyons/webpack-starter.git",
   "scripts": {
     "start": "webpack --config webpack.config.js"
   },
