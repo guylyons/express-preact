@@ -10,6 +10,8 @@
     "start": "webpack --config webpack.config.js"
   },
   "dependencies": {
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
     "lodash": "^4.17.4",
     "webpack": "^2.5.1"
   }
