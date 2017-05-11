@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Welcome from './components/Welcome.js';
+
+var element = (
+  <div>
+    <Welcome name="Guy"/>
+    <h1>Hi!</h1>
+  </div>
+);
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  element,
   document.getElementById('root')
 );
