@@ -1,7 +1,7 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
+import express from 'express';
+import exphbs from 'express-handlebars';
 
-var app = express();
+const app = express();
 
 app.use(express.static('dist'));
 
@@ -10,7 +10,7 @@ app.set('view engine', 'handlebars');
 
 
 app.get('/', function (req, res) {
-    res.render('home');
+    res.send('gabye!')
 });
 
 app.listen(3000, function () {
