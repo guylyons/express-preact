@@ -5,7 +5,7 @@ import Welcome from './components/Welcome.js';
 var element = (
   <div>
     <Welcome name="Guy"/>
-    <h1>Hi!</h1>
+    <Welcome name="Justin"/>
   </div>
 );
 
