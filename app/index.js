@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Welcome from './components/Welcome.js';
+import Modal from './components/Modal';
 
-var element = (
+const element = (
   <div>
-    <Welcome name="Guy"/>
-    <Welcome name="Justin"/>
+    <Modal message="Here to test out the modal." />
   </div>
 );
 

@@ -1,6 +1,7 @@
 var path = require("path");
 
 module.exports = {
+  devtool: "cheap-eval-source-map",
   devServer: {
     port: 9000,
     proxy: {
@@ -8,7 +9,7 @@ module.exports = {
         target: "http://localhost:3000",
         pathRewrite: {"^/" : ""}
       }
-}
+    }
   },
   entry: "./app/index.js",
   output: {
