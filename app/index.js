@@ -4,7 +4,7 @@ import Modal from './components/Modal';
 
 const element = (
   <div>
-    <Modal message="Here to test out the modal." />
+    <Modal message="Here, test out the modal." />
   </div>
 );
 
