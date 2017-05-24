@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Modal from './components/Modal';
+import React from "react";
+import ReactDOM from "react-dom";
+import Modal from "./components/Modal";
 
 const element = (
   <div>
@@ -10,5 +10,5 @@ const element = (
 
 ReactDOM.render(
   element,
-  document.getElementById('root')
+  document.getElementById("root")
 );
