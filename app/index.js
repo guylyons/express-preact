@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Modal from "./components/Modal";
+import Cell from "./components/Cell.js";
 
 const element = (
-  <div>
-    <Modal message="Here, test out the modal." />
-  </div>
+  <main>
+    <div className="mdl-grid">
+      <div className="mdl-cell">
+        <h1>Express React App</h1>
+      </div>
+    </div>
+    <div className="mdl-grid">
+      <Cell content="Cell Content"></Cell>
+    </div>
+  </main>
 );
 
 ReactDOM.render(
