@@ -1,6 +1,6 @@
 # Express React Starter
 
-Starting point for Express.js and React based projects
+Starting point for Express + React based projects
 
 ## Getting Started
 
