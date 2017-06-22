@@ -1,31 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
-import About from "./routes/About";
-import Contact from "./routes/Contact";
 import Home from "./routes/Home";
+import About from "./routes/About";
+import NotFound from "./routes/NotFound";
 
-const App = (
-  <main>
-    <Router>
-      <div>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
+import Navbar from "./components/Navbar";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <Navbar/>
         
-        
-        <Route exact path="/" component={Home}></Route>
-        <Route path="/about" component={About}></Route>
-        <Route path="/contact" component={Contact}></Route>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route component={NotFound}/>
+        </Switch>
       </div>
-    </Router>
-  </main>
-);
+    )
+  }
+}
 
-ReactDOM.render(
-  App,
-  document.getElementById("root")
-);
+export default App;
