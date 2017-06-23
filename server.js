@@ -1,17 +1,13 @@
 import express from 'express';
-import exphbs from 'express-handlebars';
 import favicon from 'express-favicon';
 
 const app = express();
 
-app.use(favicon(__dirname + '/dist/favicon.png'));
-app.use(express.static('dist'));
-
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.use(favicon(__dirname + '/public/favicon.png'));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.render('home')
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.listen(3000, function () {
