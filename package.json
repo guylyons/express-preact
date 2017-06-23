@@ -16,7 +16,6 @@
     "concurrently": "^3.5.0",
     "express": "^4.15.3",
     "express-favicon": "^2.0.0",
-    "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -40,7 +39,6 @@
     "sass-loader": "^6.0.6",
     "scss-loader": "^0.0.1",
     "style-loader": "^0.17.0",
-    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack-dev-server": "^2.5.0"
   }
 }

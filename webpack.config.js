@@ -1,25 +1,28 @@
 const path = require("path");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const config = {
   entry: {
     app: "./src/index.js",
     vendor: ["react", "react-dom"]
   },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js",
-  },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
       template: "index-template.ejs"
     })
   ],
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name]-[hash].bundle.js",
+  },
   devtool: "cheap-eval-source-map",
   devServer: {
+    hot: true,
     port: 9000,
     proxy: {
       "/": {
@@ -52,3 +55,5 @@ module.exports = {
     ]
   }
 };
+
+module.exports = config;
