@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import _ from "lodash";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Home from "./routes/Home";
 import About from "./routes/About";
@@ -14,20 +14,14 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <div className="container App">
-          
-          <Navbar />
-          
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route component={NotFound} />
-          </Switch>
-          
-          <Footer />
-          
-        </div>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route component={NotFound} />
+        </Switch>  
+        <Footer />
       </main>
     )
   }
