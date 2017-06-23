@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Home from "./routes/Home";
-import About from "./routes/About";
-import Contact from "./routes/Contact";
-import NotFound from "./routes/NotFound";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+import "normalize.css";
+import "./App.scss";
 
 class App extends React.Component {
   render() {
