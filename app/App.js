@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Home from "./routes/Home";
 import About from "./routes/About";
