@@ -1,6 +1,23 @@
-var path = require("path");
+const path = require("path");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: {
+    app: "./src/index.js",
+    vendor: ["react", "react-dom"]
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Express + React App",
+      favicon: "./favicon.png",
+      template: "index-template.ejs"
+    })
+  ],
   devtool: "cheap-eval-source-map",
   devServer: {
     port: 9000,
@@ -11,25 +28,26 @@ module.exports = {
       }
     }
   },
-  entry: "./app/index.js",
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "public")
-  },
   module: {
     rules: [
       { test: /\.js|.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
       { 
-        test: /\.scss$/, use: 
+        test: /\.scss|.sass$/, use: 
         [
-          'style-loader', 'css-loader', 'sass-loader'
+          "style-loader", "css-loader", "sass-loader"
         ] 
       },
       { 
         test: /\.css$/, use: 
         [
-          'style-loader', 'css-loader'
+          "style-loader", "css-loader"
         ] 
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          "file-loader"
+        ]
       }
     ]
   }
