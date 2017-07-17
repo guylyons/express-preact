@@ -36,6 +36,7 @@ class Posts extends React.Component {
         </p>
       </div>
     );
+
     return (
       <div>
         <h1>Posts</h1>

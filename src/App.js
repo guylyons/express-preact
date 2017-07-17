@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation";
 import "./App.scss";
 import { Button } from "react-bootstrap";
 import Posts from "./components/Posts";
+import UsStates from "./components/UsStates";
 
 const app = {
   title: "untitled app"
@@ -45,8 +46,7 @@ class App extends React.Component {
             Count: {this.state.count}
           </p>
         </Jumbotron>
-
-        <Posts />
+        <UsStates />
       </main>
     );
   }
