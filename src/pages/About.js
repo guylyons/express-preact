@@ -1,20 +1,43 @@
 import React, { Component } from "react";
 
-class About extends React.Component {
-  render() {
-    const divStyle = {
-      border: "1px solid red",
-      
+class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
     };
-    return (
-      <div style={divStyle}>
-        <h1>About</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-        <img src="https://unsplash.it/500/300/?random" alt="some image"/>
+  }
+
+  ajaxReq() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://jsonplaceholder.typicode.com/users", true);
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        var jsonResponse = JSON.parse(xhr.responseText);
+        this.setState({
+          data: jsonResponse
+        });
+      }
+    };
+
+    xhr.send();
+  }
+
+  render() {
+    let things = this.state.data;
+    let listThings = things.map(thing =>
+      <div>
+        {thing.id}
       </div>
-    )
+    );
+
+    return (
+      <div>
+        <h1>About</h1>
+        {this.state.data}
+        <button onClick={this.ajaxReq.bind(this)}>Click me</button>
+      </div>
+    );
   }
 }
 

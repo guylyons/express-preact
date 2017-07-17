@@ -22,10 +22,10 @@ class App extends React.Component {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
-        </Switch>  
+        </Switch>
         <Footer />
       </main>
-    )
+    );
   }
 }
 

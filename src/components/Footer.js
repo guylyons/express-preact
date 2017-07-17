@@ -2,11 +2,15 @@ import React from "react";
 
 class Footer extends React.Component {
   render() {
+    const style = {
+      border: "2px solid red"
+    };
+    
     return (
-      <footer className="Footer">
-        Footer Content
-      </footer>
-    )
+        <div>
+        This is the Footer component
+        </div>
+    );
   }
 }
 
