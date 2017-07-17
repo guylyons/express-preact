@@ -4,24 +4,49 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
+import { Jumbotron } from "react-bootstrap";
+import Navigation from "./components/Navigation";
+
 import "./App.scss";
 import { Button } from "react-bootstrap";
+import Posts from "./components/Posts";
+
+const app = {
+  title: "untitled app"
+};
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 1
+    };
+  }
+
+  handleClick(e) {
+    this.setState((prevState, props) => ({
+      count: prevState.count + 1
+    }));
+  }
   render() {
     return (
       <main className="container">
-        <h1>Express</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <Button>Hello</Button>
+        <Navigation title={app.title} />
+        <Jumbotron>
+          <h2>
+            {app.title}
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <Button onClick={this.handleClick.bind(this)}>Increment</Button>
+          <p>
+            Count: {this.state.count}
+          </p>
+        </Jumbotron>
+
+        <Posts />
       </main>
     );
   }
