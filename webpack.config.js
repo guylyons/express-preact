@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: {
@@ -13,12 +13,12 @@ const config = {
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
-      template: "index-template.ejs"
+      template: "src/index-template.ejs"
     })
   ],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name]-[hash].bundle.js",
+    filename: "[name]-[hash].bundle.js"
   },
   devtool: "cheap-eval-source-map",
   devServer: {
@@ -27,30 +27,24 @@ const config = {
     proxy: {
       "/": {
         target: "http://localhost:3000",
-        pathRewrite: {"^/" : ""}
+        pathRewrite: { "^/": "" }
       }
     }
   },
   module: {
     rules: [
       { test: /\.js|.jsx$/, exclude: /node_modules/, loader: "babel-loader" },
-      { 
-        test: /\.scss|.sass$/, use: 
-        [
-          "style-loader", "css-loader", "sass-loader"
-        ] 
+      {
+        test: /\.scss|.sass$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
-      { 
-        test: /\.css$/, use: 
-        [
-          "style-loader", "css-loader"
-        ] 
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          "file-loader"
-        ]
+        use: ["file-loader"]
       }
     ]
   }
