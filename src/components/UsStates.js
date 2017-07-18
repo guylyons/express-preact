@@ -1,10 +1,12 @@
 import React from "react";
+import { Button, Col, ProgressBar } from "react-bootstrap";
 
 class UsStates extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       result: "Search a state",
+      percentage: 0,
       states: [
         "Alabama",
         "Alaska",
@@ -62,6 +64,10 @@ class UsStates extends React.Component {
     };
   }
 
+  handleCopy(e) {
+    alert("Copied!!!!!!!!");
+  }
+
   handleChange(e) {
     var e = e.target;
     var states = this.state.states;
@@ -77,31 +83,38 @@ class UsStates extends React.Component {
         returnArray.push(array[i]);
       }
     }
-    console.log(returnArray);
+    console.log(returnArray.length / 51);
+    var newPercentage = returnArray.length / 51 * 100;
+
     this.setState({
-      statesNew: returnArray
+      statesNew: returnArray,
+      percentage: Math.round(newPercentage)
     });
   }
   render() {
     const statesNew = this.state.statesNew;
     const statesNewItems = statesNew.map((state, index) =>
-      <li key={index}>
+      <Button className="statesNewItems__item" key={index}>
         {state}
-      </li>
+      </Button>
     );
-    const states = this.state.states;
-    const stateItems = states.map((state, index) =>
-      <li key={index}>
-        {state}
-      </li>
-    );
+
     return (
       <div>
-        <h2>US States component</h2>
-        <input type="text" onChange={this.handleChange.bind(this)} />
-        <ul>
-          {statesNewItems}
-        </ul>
+        <h2 onCopy={this.handleCopy}>US States component</h2>
+        <Col md={6}>
+          <input type="text" onChange={this.handleChange.bind(this)} />
+          <br />
+          <h3>
+            Percentage: {this.state.percentage}
+          </h3>
+          <ProgressBar bsStyle="info" now={this.state.percentage} />
+        </Col>
+        <Col md={6}>
+          <div className="statesNewItems">
+            {statesNewItems}
+          </div>
+        </Col>
       </div>
     );
   }

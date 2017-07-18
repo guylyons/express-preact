@@ -26,7 +26,7 @@ class App extends React.Component {
 
   handleClick(e) {
     this.setState((prevState, props) => ({
-      count: prevState.count + 1
+      count: prevState.count + 2
     }));
   }
   render() {
@@ -46,7 +46,9 @@ class App extends React.Component {
             Count: {this.state.count}
           </p>
         </Jumbotron>
-        <UsStates />
+
+        {/* this shows that we can pass state to props in this component */}
+        <UsStates progress={this.state.count} />
       </main>
     );
   }
