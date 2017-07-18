@@ -57,7 +57,8 @@ class UsStates extends React.Component {
         "West Virginia",
         "Wisconsin",
         "Wyoming"
-      ]
+      ],
+      statesNew: []
     };
   }
 
@@ -70,18 +71,24 @@ class UsStates extends React.Component {
   }
   matchFinder(value, array) {
     var returnArray = [];
-    // loop thru the array
+
     for (var i = 0; i < array.length; i++) {
-      // see if there is a match
       if (array[i].includes(value)) {
-        returnArray.push(i);
-        // there is? sweet!
-        console.log("bingo! @ index: " + i);
+        returnArray.push(array[i]);
       }
     }
     console.log(returnArray);
+    this.setState({
+      statesNew: returnArray
+    });
   }
   render() {
+    const statesNew = this.state.statesNew;
+    const statesNewItems = statesNew.map((state, index) =>
+      <li key={index}>
+        {state}
+      </li>
+    );
     const states = this.state.states;
     const stateItems = states.map((state, index) =>
       <li key={index}>
@@ -91,13 +98,9 @@ class UsStates extends React.Component {
     return (
       <div>
         <h2>US States component</h2>
-        <p>State search</p>
         <input type="text" onChange={this.handleChange.bind(this)} />
-        <p>
-          {this.state.result}
-        </p>
         <ul>
-          {stateItems}
+          {statesNewItems}
         </ul>
       </div>
     );
