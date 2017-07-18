@@ -7,6 +7,7 @@ class UsStates extends React.Component {
     this.state = {
       result: "Search a state",
       percentage: 0,
+      searchTerm: "Search the states!",
       states: [
         "Alabama",
         "Alaska",
@@ -88,7 +89,8 @@ class UsStates extends React.Component {
 
     this.setState({
       statesNew: returnArray,
-      percentage: Math.round(newPercentage)
+      percentage: Math.round(newPercentage),
+      searchTerm: value
     });
   }
   render() {
@@ -112,6 +114,9 @@ class UsStates extends React.Component {
         </Col>
         <Col md={6}>
           <div className="statesNewItems">
+            <h1>
+              {this.state.searchTerm}
+            </h1>
             {statesNewItems}
           </div>
         </Col>
