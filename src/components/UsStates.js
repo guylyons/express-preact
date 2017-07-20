@@ -1,13 +1,13 @@
 import React from "react";
-import { Button, Col, ProgressBar } from "react-bootstrap";
+import { Button, Col, ProgressBar, Badge } from "react-bootstrap";
 
 class UsStates extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       result: "Search a state",
-      percentage: 0,
-      searchTerm: "Search the states!",
+      numStates: 0,
+      searchTerm: "",
       states: [
         "Alabama",
         "Alaska",
@@ -79,18 +79,24 @@ class UsStates extends React.Component {
   matchFinder(value, array) {
     var returnArray = [];
 
-    for (var i = 0; i < array.length; i++) {
-      if (array[i].includes(value)) {
-        returnArray.push(array[i]);
-      }
-    }
-    console.log(returnArray.length / 51);
-    var newPercentage = returnArray.length / 51 * 100;
+    // for (var i = 0; i < array.length; i++) {
+    //   if (array[i].includes(value)) {
+    //     returnArray.push(array[i]);
+    //   }
+    // }
 
-    this.setState({
-      statesNew: returnArray,
-      percentage: Math.round(newPercentage),
-      searchTerm: value
+    var returnArray = array.filter(function(arrayIndex) {
+      value = value.toLowerCase();
+      arrayIndex = arrayIndex.toLowerCase();
+      return arrayIndex.includes(value);
+    });
+
+    this.setState((prevState, currentProps) => {
+      return {
+        statesNew: returnArray,
+        searchTerm: value,
+        numStates: returnArray.length
+      };
     });
   }
   render() {
@@ -103,14 +109,16 @@ class UsStates extends React.Component {
 
     return (
       <div>
-        <h2 onCopy={this.handleCopy}>US States component</h2>
         <Col md={6}>
+          <h2 onCopy={this.handleCopy}>US States component</h2>
           <input type="text" onChange={this.handleChange.bind(this)} />
           <br />
           <h3>
-            Percentage: {this.state.percentage}
+            Number of States that contain{" "}
+            <strong>{this.state.searchTerm}</strong>
+            <br />
+            {this.state.numStates}
           </h3>
-          <ProgressBar bsStyle="info" now={this.state.percentage} />
         </Col>
         <Col md={6}>
           <div className="statesNewItems">
