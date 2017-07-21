@@ -9,9 +9,8 @@
   "scripts": {
     "start": "concurrently \"npm run serve\" \"npm run bundle-serve\"",
     "serve": "./node_modules/babel-cli/bin/babel-node.js server.js --presets es2015,stage-2",
-    "bundle": "webpack --config webpack.config.js",
-    "bundle-serve": "webpack-dev-server --open",
-    "dist": "webpack -p"
+    "bundle": "webpack --config webpack.config.js --progress",
+    "bundle-serve": "webpack-dev-server --open"
   },
   "dependencies": {
     "concurrently": "^3.5.0",
@@ -33,6 +32,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
