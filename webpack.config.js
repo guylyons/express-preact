@@ -4,12 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
   entry: {
-    app: "./src/index.js",
-    vendor: ["react", "react-dom"]
+    app: "./src/index.js"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
@@ -17,10 +15,10 @@ const config = {
     })
   ],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name]-[hash].bundle.js"
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
   },
-  devtool: "cheap-eval-source-map",
+  devtool: "eval",
   devServer: {
     hot: true,
     port: 9000,

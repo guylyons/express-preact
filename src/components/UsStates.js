@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, ProgressBar, Badge } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 
 class UsStates extends React.Component {
   constructor(props) {
@@ -70,21 +70,12 @@ class UsStates extends React.Component {
   }
 
   handleChange(e) {
-    var e = e.target;
     var states = this.state.states;
-    var value = e.value;
+    var value = e.target.value;
 
     this.matchFinder(value, states);
   }
   matchFinder(value, array) {
-    var returnArray = [];
-
-    // for (var i = 0; i < array.length; i++) {
-    //   if (array[i].includes(value)) {
-    //     returnArray.push(array[i]);
-    //   }
-    // }
-
     var returnArray = array.filter(function(arrayIndex) {
       value = value.toLowerCase();
       arrayIndex = arrayIndex.toLowerCase();
