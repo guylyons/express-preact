@@ -6,7 +6,8 @@ const BabiliPlugin = require("babili-webpack-plugin");
 
 const config = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
+    vendor: ["react", "react-dom", "react-router-dom"]
   },
 
   plugins: [
@@ -16,10 +17,14 @@ const config = {
       favicon: "./favicon.png",
       template: "src/index-template.ejs"
     }),
-    new BabiliPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: "common"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(
+      {
+        // Options...
+      }
+    )
   ],
 
   output: {
@@ -27,7 +32,8 @@ const config = {
     path: path.resolve(__dirname, "dist")
   },
 
-  devtool: "cheap-source-map",
+  devtool: "cheap-eval-source-map",
+  // devtool: "cheap-source-map", // production
 
   devServer: {
     hot: true,
