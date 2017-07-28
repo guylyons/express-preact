@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const BabiliPlugin = require("babili-webpack-plugin");
 
 const config = {
   entry: {
@@ -10,11 +11,14 @@ const config = {
 
   plugins: [
     new CleanWebpackPlugin(["dist"]),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
       template: "src/index-template.ejs"
+    }),
+    new BabiliPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "common"
     })
   ],
 
@@ -23,7 +27,7 @@ const config = {
     path: path.resolve(__dirname, "dist")
   },
 
-  devtool: "inline-source-map",
+  devtool: "cheap-source-map",
 
   devServer: {
     hot: true,

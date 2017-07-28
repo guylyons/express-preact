@@ -13,16 +13,8 @@
     "bundle-serve": "webpack-dev-server --open"
   },
   "dependencies": {
-    "concurrently": "^3.5.0",
     "express": "^4.15.3",
-    "express-favicon": "^2.0.0",
-    "react": "^15.6.1",
-    "react-bootstrap": "^0.31.1",
-    "react-dom": "^15.6.1",
-    "react-router": "^4.1.2",
-    "react-router-dom": "^4.1.2",
-    "react-tap-event-plugin": "^2.0.1",
-    "webpack": "^3.3.0"
+    "express-favicon": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -32,14 +24,21 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
     "clean-webpack-plugin": "^0.1.16",
+    "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
     "node-sass": "^4.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
     "sass-loader": "^6.0.6",
     "scss-loader": "^0.0.1",
     "style-loader": "^0.17.0",
+    "webpack": "^3.4.1",
     "webpack-dev-server": "^2.5.1"
   }
 }
