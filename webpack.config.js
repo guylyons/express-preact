@@ -15,11 +15,13 @@ const config = {
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
-      template: "src/index-template.ejs"
+      template: "./template.ejs"
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "common"
+      name: "vendor",
+      minChunks: Infinity
     }),
+    new BabiliPlugin(),
     new webpack.HotModuleReplacementPlugin(
       {
         // Options...
@@ -32,7 +34,7 @@ const config = {
     path: path.resolve(__dirname, "dist")
   },
 
-  devtool: "cheap-eval-source-map",
+  devtool: "cheap-eval-source-map", // development
   // devtool: "cheap-source-map", // production
 
   devServer: {
