@@ -3,18 +3,32 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const BabiliPlugin = require("babili-webpack-plugin");
 
 const config = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/index.js",
+    vendor: ["react", "react-dom", "react-router-dom"]
   },
 
   plugins: [
+    new CleanWebpackPlugin(["dist"]),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
     new HtmlWebpackPlugin({
       title: "Express + React App",
       favicon: "./favicon.png",
       template: "./template.ejs"
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: Infinity
+    }),
+    new BabiliPlugin(),
     new webpack.HotModuleReplacementPlugin(
       {
         // Options...
@@ -27,7 +41,7 @@ const config = {
     path: path.resolve(__dirname, "dist")
   },
 
-  devtool: "cheap-eval-source-map", // development
+  devtool: "cheap", // production
 
   devServer: {
     hot: true,

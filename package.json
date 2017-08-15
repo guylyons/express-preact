@@ -10,6 +10,7 @@
     "start": "concurrently \"npm run serve\" \"npm run bundle-serve\"",
     "serve": "./node_modules/babel-cli/bin/babel-node.js server.js --presets es2015,stage-2",
     "bundle": "webpack --config webpack.config.js --progress",
+    "build": "webpack --config webpack.production.js --progress",
     "bundle-serve": "webpack-dev-server --open"
   },
   "dependencies": {
