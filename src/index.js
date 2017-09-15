@@ -1,9 +1,4 @@
 import preact, { render } from "preact";
+import App from "./App.js";
 
-render(
-  <div id="foo">
-    <span>Hello, world!</span>
-    <button onClick={e => alert("hi!")}>Click Me</button>
-  </div>,
-  document.body
-);
+render(<App />, document.body);

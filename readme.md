@@ -1,10 +1,10 @@
-# Express React Starter
+# Express Preact Starter
 
-Starting point for Express + React based projects
+Starting point for Express + Preact based projects
 
 ## Getting Started
 
-    yarn install
+    npm install
     npm run start
     
     
