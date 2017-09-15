@@ -9,7 +9,7 @@ const BabiliPlugin = require("babili-webpack-plugin");
 const config = {
   entry: {
     app: "./src/index.js",
-    vendor: ["react", "react-dom", "react-router-dom"]
+    vendor: ["preact"]
   },
 
   plugins: [
@@ -29,11 +29,9 @@ const config = {
       minChunks: Infinity
     }),
     new BabiliPlugin(),
-    new webpack.HotModuleReplacementPlugin(
-      {
-        // Options...
-      }
-    )
+    new webpack.HotModuleReplacementPlugin({
+      // Options...
+    })
   ],
 
   output: {

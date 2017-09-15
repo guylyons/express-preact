@@ -1,11 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
-import App from "./App";
+import preact, { render } from "preact";
 
-ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
-  document.getElementById("root")
+render(
+  <div id="foo">
+    <span>Hello, world!</span>
+    <button onClick={e => alert("hi!")}>Click Me</button>
+  </div>,
+  document.body
 );
