@@ -9,15 +9,13 @@ const config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Express + React App",
+      title: "Preact App Starter",
       favicon: "./favicon.png",
       template: "./template.ejs"
     }),
-    new webpack.HotModuleReplacementPlugin(
-      {
-        // Options...
-      }
-    )
+    new webpack.HotModuleReplacementPlugin({
+      // Options...
+    })
   ],
 
   output: {

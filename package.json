@@ -1,21 +1,18 @@
 {
   "name": "express-preact",
   "version": "0.0.1",
-  "description": "Starting point for Express Preact projects",
+  "description": "Starting point for Preact projects",
   "main": "server.js",
   "author": "Guy Lyons",
   "license": "MIT",
   "repository": "git@github.com:guylyons/express-react.git",
   "scripts": {
-    "start": "concurrently \"npm run serve\" \"npm run bundle-serve\"",
-    "serve": "./node_modules/babel-cli/bin/babel-node.js server.js --presets es2015,stage-2",
+    "start": "npm run bundle-serve",
     "bundle": "webpack --config webpack.config.js --progress",
     "build": "webpack --config webpack.production.js --progress",
     "bundle-serve": "webpack-dev-server --open"
   },
   "dependencies": {
-    "express": "^4.16.1",
-    "express-favicon": "^2.0.0",
     "preact": "^8.2.5",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
@@ -30,7 +27,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "babili-webpack-plugin": "^0.1.2",
     "clean-webpack-plugin": "^0.1.17",
-    "concurrently": "^3.5.0",
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
