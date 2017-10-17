@@ -14,11 +14,11 @@
     "bundle-serve": "webpack-dev-server --open"
   },
   "dependencies": {
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "express-favicon": "^2.0.0",
     "preact": "^8.2.5",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
